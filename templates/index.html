@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ data.name }}</title>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='image/2.png') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Three.js for 3D background -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- 3D Background -->
+  <div id="three-bg"></div>
+
+  <!-- Background Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a href="#hero" class="nav-logo">SHRIM <span>SETHI </span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-menu-btn" id="menuBtn">☰</button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="#skills" onclick="closeMobile()">Skills</a>
+    <a href="#projects" onclick="closeMobile()">Projects</a>
+    <a href="#education" onclick="closeMobile()">Education</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        {% if data.available %}
+       <div class="hero-tag" >✦ Available for opportunities</div>
+        {% endif %}
+
+        <h1 class="hero-name" id="heroName" data-text="{{ data.name.upper() }}">{{ data.name.upper() }}</h1>
+        <p class="hero-title">
+          <span>{{ data.title }}</span> —
+          {{ data.tagline }}
+        </p>
+        <a href="#projects" style="color: #111;" > <div class="ag-badge"><span class="ag-dot"></span>Ongoing Project</div></a>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">View Work</a>
+          <a href="#contact" class="btn btn-outline">Let's Talk</a>
+          <a href="{{ url_for('static', filename='resume/resume.pdf') }}" class="btn btn-outline">  
+        <span class="text">↓ Download Resume</span></a>
+        </div>
+      </div>
+
+      <div class="hero-portrait">
+        <div class="hero-image-frame" data-tilt>
+          <img src="{{ url_for('static', filename='image/1.png') }}" alt="{{ data.name }} portrait" />
+          <span class="hero-image-glow"></span>
+          <div class="hero-image-shine"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="about-left reveal">
+      <p class="section-label">01 — About Me</p>
+      <h2 class="section-title">Crafting intelligence,<br>one layer at a time.</h2>
+    </div>
+    <div class="about-right reveal" style="--delay: 0.2s">
+      <p class="about-bio">{{ data.about.bio | replace("machine learning", "<span>machine learning</span>") | replace("full-stack development", "<span>full-stack development</span>") | safe }}</p>
+      <div class="about-stats">
+        {% for s in data.about.stats %}
+        <div class="stat" data-tilt-mini>
+          <span class="stat-num" data-count="{{ s.num }}">{{ s.num }}</span>
+          <span class="stat-label">{{ s.label }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section id="skills">
+    <div class="reveal sec-header">
+      <p class="section-label">02 — Skills</p>
+      <h2 class="section-title">Tools of the trade.</h2>
+    </div>
+    <div class="skills-stack">
+      {% for group in data.skills %}
+      <div class="skills-group reveal" style="--delay: {{ loop.index0 * 0.1 }}s">
+        <div class="skills-group-title">{{ group.title }}</div>
+        <div class="skills-grid">
+          {% for sk in group.skills %}
+          <div class="skill-card" data-level="{{ sk.level / 100 }}" data-tilt style="--i: {{ loop.index0 }}">
+            <span class="skill-icon">{{ sk.icon }}</span>
+            <span class="skill-name">{{ sk.name }}</span>
+            <div class="skill-level">
+              <div class="skill-fill"></div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section id="projects">
+    <div class="reveal sec-header">
+      <p class="section-label">03 — Projects</p>
+      <h2 class="section-title">Things I've built.</h2>
+    </div>
+    <div class="projects-grid reveal">
+      {% for p in data.projects %}
+      <a href="{{ p.link }}" class="project-card" data-tilt style="--i: {{ loop.index0 }}">
+        <div class="project-arrow">↗</div>
+        <div class="project-num">{{ p.num }}</div>
+        <div class="project-name">{{ p.name }}</div>
+        <div class="project-desc">{{ p.desc }}</div>
+        <div class="project-tags">
+          {% for t in p.tags %}
+          <span class="tag">{{ t }}</span>
+          {% endfor %}
+        </div>
+        <div class="card-glow"></div>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ── EDUCATION ── -->
+  <section id="education">
+    <div class="reveal sec-header">
+      <p class="section-label">04 — Education</p>
+      <h2 class="section-title">Academic journey.</h2>
+    </div>
+    <div class="edu-list reveal">
+      {% for e in data.education %}
+      <div class="edu-item" data-tilt-mini style="--i: {{ loop.index0 }}">
+        <div>
+          <div class="edu-degree">{{ e.degree }}</div>
+          <div class="edu-school">{{ e.school }} · {{ e.grade }}</div>
+        </div>
+        <div class="edu-year">{{ e.year }}</div>
+         <a href="{{ url_for('static', filename=e.marksheet) }}" 
+       target="_blank" 
+       class="marksheet-btn">
+       View Marksheet
+    </a>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ── EXPERIENCE ── -->
+  <section id="experience">
+    <div class="reveal sec-header">
+      <p class="section-label">05 — Experience</p>
+      <h2 class="section-title">Where I've contributed.</h2>
+    </div>
+    <div class="exp-list reveal">
+      {% for ex in data.experience %}
+      <div class="exp-item" data-tilt-mini style="--i: {{ loop.index0 }}">
+        <div class="exp-top">
+          <div>
+            <div class="exp-role">{{ ex.role }}</div>
+            <div class="exp-company">{{ ex.company }}</div>
+          </div>
+          <div class="exp-meta">{{ ex.duration }} · {{ ex.location }}</div>
+        </div>
+        <p class="exp-detail">{{ ex.details }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ── CERTIFICATIONS ── -->
+  <section id="certifications">
+    <div class="reveal sec-header">
+      <p class="section-label">06 — Certifications</p>
+      <h2 class="section-title">Proof of practice.</h2>
+    </div>
+    <div class="cert-grid reveal">
+      {% for c in data.certifications %}
+      <div class="cert-item" data-tilt style="--i: {{ loop.index0 }}">{{ c }}</div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ── ACHIEVEMENTS ── -->
+  <section id="achievements">
+    <div class="reveal sec-header">
+      <p class="section-label">07 — Achievements</p>
+      <h2 class="section-title">Highlights.</h2>
+    </div>
+    <div class="ach-list reveal">
+      {% for a in data.achievements %}
+      <div class="ach-item" data-tilt style="--i: {{ loop.index0 }}">✦ {{ a }}</div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <div class="reveal">
+      <p class="section-label">08 — Contact</p>
+      <h2 class="contact-big">Let's build<br>something<br>impossible.</h2>
+    </div>
+
+    <!-- Contact Form -->
+    <form class="contact-form reveal" id="contactForm">
+      <div class="form-row">
+        <input type="text"  id="cf-name"    placeholder="Your Name"    required />
+        <input type="email" id="cf-email"   placeholder="Your Email"   required />
+      </div>
+      <textarea id="cf-msg" placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit" class="btn btn-primary form-btn">Send Message ↗</button>
+      <p class="form-status" id="formStatus"></p>
+    </form>
+
+    <div class="contact-links reveal">
+      <a href="mailto:{{ data.email }}" class="contact-link">✉ Email</a>
+      <a href="{{ data.linkedin }}"     class="contact-link" target="_blank">in LinkedIn</a>
+      <a href="{{ data.github }}"       class="contact-link" target="_blank">⌥ GitHub</a>
+    </div>
+  </section>
+
+  <footer>© 2025 — {{ data.name.upper() }}</footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

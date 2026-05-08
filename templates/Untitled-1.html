@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Germany Masters Roadmap 2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f2eb;
+    --gold: #e8c547;
+    --orange: #f07d3e;
+    --red: #e84545;
+    --green: #4caf7d;
+    --blue: #4a9eff;
+    --gray: #1e1e1e;
+    --gray2: #2a2a2a;
+    --text-muted: #888;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Outfit', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1200 50%, #0a0a0a 100%);
+    border-bottom: 2px solid var(--gold);
+    padding: 60px 40px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: 'GERMANY 2027';
+    position: absolute;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 180px;
+    color: rgba(232,197,71,0.04);
+    top: -20px; right: -20px;
+    letter-spacing: 10px;
+    pointer-events: none;
+  }
+  .hero-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-tag::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 8vw, 90px);
+    line-height: 0.95;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-sub {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin-bottom: 30px;
+  }
+  .status-bar {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .status-pill {
+    background: var(--gray);
+    border: 1px solid #333;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .status-pill span { color: var(--gold); }
+
+  /* NAV */
+  .nav {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    border-bottom: 1px solid #222;
+    background: #0d0d0d;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    scrollbar-width: none;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav-btn {
+    padding: 14px 24px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .nav-btn.active, .nav-btn:hover {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+    background: rgba(232,197,71,0.05);
+  }
+
+  /* SECTIONS */
+  .section { display: none; padding: 50px 40px; max-width: 1100px; margin: 0 auto; }
+  .section.active { display: block; animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* SECTION TITLE */
+  .sec-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+  .sec-title span { color: var(--gold); }
+  .sec-desc { color: var(--text-muted); font-size: 15px; margin-bottom: 40px; border-bottom: 1px solid #222; padding-bottom: 20px; }
+
+  /* VERDICT CARD */
+  .verdict {
+    background: linear-gradient(135deg, #0f1a0f, #1a1a0a);
+    border: 1px solid var(--green);
+    border-left: 4px solid var(--green);
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+  }
+  .verdict.warn { border-color: var(--orange); border-left-color: var(--orange); background: linear-gradient(135deg, #1a0f0a, #1a1a0a); }
+  .verdict-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--green);
+    margin-bottom: 12px;
+  }
+  .verdict.warn .verdict-label { color: var(--orange); }
+  .verdict h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+  .verdict p { font-size: 15px; color: #ccc; line-height: 1.8; }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  @media(max-width: 700px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .section { padding: 30px 20px; }
+    .hero { padding: 40px 20px; }
+  }
+
+  /* CARD */
+  .card {
+    background: var(--gray);
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 24px;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: #444; }
+  .card-icon { font-size: 28px; margin-bottom: 12px; }
+  .card h4 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+  .card p { font-size: 14px; color: #aaa; line-height: 1.7; }
+  .card.gold { border-top: 3px solid var(--gold); }
+  .card.green { border-top: 3px solid var(--green); }
+  .card.red { border-top: 3px solid var(--red); }
+  .card.blue { border-top: 3px solid var(--blue); }
+  .card.orange { border-top: 3px solid var(--orange); }
+
+  /* TIMELINE */
+  .timeline { position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+  .tl-item {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 32px;
+    position: relative;
+  }
+  .tl-dot {
+    width: 42px; height: 42px;
+    background: var(--gold);
+    color: var(--black);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .tl-dot.done { background: var(--green); }
+  .tl-dot.future { background: #333; color: #888; }
+  .tl-content { flex: 1; padding-top: 8px; }
+  .tl-month {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .tl-content h4 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+  .tl-tasks { list-style: none; }
+  .tl-tasks li {
+    font-size: 14px;
+    color: #bbb;
+    padding: 5px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .tl-tasks li::before { content: '→'; color: var(--gold); font-size: 12px; margin-top: 2px; flex-shrink: 0; }
+
+  /* TABLE */
+  .table-wrap { overflow-x: auto; margin-bottom: 30px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th {
+    background: var(--gray2);
+    padding: 12px 16px;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    border-bottom: 2px solid var(--gold);
+  }
+  td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #1e1e1e;
+    color: #ccc;
+    vertical-align: top;
+  }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  .badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .badge-gold { background: rgba(232,197,71,0.15); color: var(--gold); }
+  .badge-green { background: rgba(76,175,125,0.15); color: var(--green); }
+  .badge-red { background: rgba(232,69,69,0.15); color: var(--red); }
+  .badge-blue { background: rgba(74,158,255,0.15); color: var(--blue); }
+  .badge-orange { background: rgba(240,125,62,0.15); color: var(--orange); }
+
+  /* SKILL BARS */
+  .skill-item { margin-bottom: 20px; }
+  .skill-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }
+  .skill-name { font-weight: 600; }
+  .skill-priority { font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+  .skill-bar { height: 6px; background: #222; border-radius: 3px; overflow: hidden; }
+  .skill-fill { height: 100%; border-radius: 3px; transition: width 1s ease; }
+
+  /* HIGHLIGHT BOX */
+  .highlight {
+    background: rgba(232,197,71,0.08);
+    border: 1px solid rgba(232,197,71,0.3);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .highlight h4 { color: var(--gold); font-size: 15px; margin-bottom: 10px; }
+  .highlight p, .highlight li { font-size: 14px; color: #ccc; line-height: 1.8; }
+  .highlight ul { padding-left: 20px; }
+
+  /* NUMBER STAT */
+  .stats-row { display: flex; gap: 16px; margin-bottom: 30px; flex-wrap: wrap; }
+  .stat-box {
+    background: var(--gray);
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 20px 24px;
+    flex: 1;
+    min-width: 140px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label { font-size: 12px; color: var(--text-muted); }
+
+  /* CHECKLIST */
+  .checklist { list-style: none; }
+  .checklist li {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #1a1a1a;
+    font-size: 14px;
+    color: #ccc;
+    align-items: flex-start;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check-icon { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+  .check-text strong { display: block; color: var(--white); font-size: 15px; margin-bottom: 3px; }
+
+  /* RESOURCE LINK */
+  .resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+  .resource-card {
+    background: var(--gray);
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .resource-icon { font-size: 22px; flex-shrink: 0; }
+  .resource-body h5 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .resource-body p { font-size: 12px; color: #888; line-height: 1.5; }
+  .resource-body a { color: var(--blue); font-size: 12px; text-decoration: none; }
+  .resource-body a:hover { text-decoration: underline; }
+
+  /* WARNING BOX */
+  .warning-box {
+    background: rgba(232,69,69,0.08);
+    border: 1px solid rgba(232,69,69,0.3);
+    border-left: 4px solid var(--red);
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.8;
+  }
+  .warning-box strong { color: var(--red); }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tag">Master Plan · BTech CSE-AI → Germany MSc Data Science</div>
+  <h1>BHAI KA<br><span>GERMANY</span><br>ROADMAP</h1>
+  <p class="hero-sub">April 2027 Graduation → September 2027 Germany। बिना panic, बिना loophole। एक plan, सब कुछ यहाँ।</p>
+  <div class="status-bar">
+    <div class="status-pill">📍 Status: <span>6th Sem Ongoing</span></div>
+    <div class="status-pill">🎯 Target: <span>Winter Intake 2027</span></div>
+    <div class="status-pill">⏳ Time Left: <span>~18 Months</span></div>
+    <div class="status-pill">💰 Route: <span>Scholarship + Public Uni</span></div>
+  </div>
+</div>
+
+<nav class="nav">
+  <button class="nav-btn active" onclick="show('verdict')">🤔 जाना चाहिए?</button>
+  <button class="nav-btn" onclick="show('roadmap')">🗺️ Roadmap</button>
+  <button class="nav-btn" onclick="show('scholarships')">💰 Scholarships</button>
+  <button class="nav-btn" onclick="show('skills')">💻 Skills</button>
+  <button class="nav-btn" onclick="show('german')">🇩🇪 German</button>
+  <button class="nav-btn" onclick="show('universities')">🏛️ Universities</button>
+  <button class="nav-btn" onclick="show('job')">💼 Germany में Job</button>
+  <button class="nav-btn" onclick="show('resources')">📚 Resources</button>
+</nav>
+
+<!-- SECTION 1: VERDICT -->
+<div id="verdict" class="section active">
+  <div class="sec-title">जाना <span>चाहिए</span> या नहीं?</div>
+  <p class="sec-desc">Honest analysis — India placement vs Germany Masters। कोई BS नहीं।</p>
+
+  <div class="verdict">
+    <div class="verdict-label">✅ FINAL VERDICT</div>
+    <h3>हाँ जा — लेकिन सही plan के साथ।</h3>
+    <p>BTech CSE-AI + Germany MSc Data Science = India में ₹25-60 LPA entry-level (3-5 साल बाद), और Germany में €45,000-65,000/year starting salary। Indian placement से मिलेगा ₹6-15 LPA अभी — good money, but ceiling कम है। Data Science में Germany Europe का hub है — BOSCH, SAP, Siemens, BMW सब Bangalore नहीं, Germany में AI R&D करते हैं।</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card green">
+      <div class="card-icon">🇩🇪</div>
+      <h4>Germany Masters — क्यों हाँ</h4>
+      <p>
+        ✅ Public unis में fees बहुत कम (€0-500/semester)<br>
+        ✅ Part-time job legal है — 20 hrs/week<br>
+        ✅ Post-study work visa — 18 months<br>
+        ✅ EU में job opportunities massive<br>
+        ✅ Data Science demand extremely high<br>
+        ✅ DAAD scholarship + stipend possible<br>
+        ✅ Quality of life + international exposure<br>
+        ✅ Long-term earning potential बहुत ज़्यादा
+      </p>
+    </div>
+    <div class="card red">
+      <div class="card-icon">⚠️</div>
+      <h4>Germany — Challenges (ignore मत करना)</h4>
+      <p>
+        ❌ Block amount: €11,208 (₹10L+) bank में चाहिए<br>
+        ❌ German A1/A2 most unis demand करती हैं<br>
+        ❌ IELTS/TOEFL score चाहिए<br>
+        ❌ Strong GPA (7.5+ CGPA needed)<br>
+        ❌ Motivation letter + research exposure<br>
+        ❌ First 3-6 months financially tight<br>
+        ❌ Cultural adjustment, language barrier<br>
+        ❌ Indian family pressure 😅
+      </p>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="stat-num">€0</div>
+      <div class="stat-label">TU Munich fees/semester</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">20</div>
+      <div class="stat-label">Hrs/week work allowed</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">€520</div>
+      <div class="stat-label">Avg part-time/month</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">18</div>
+      <div class="stat-label">Months post-study visa</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">€52K</div>
+      <div class="stat-label">Avg starting salary DS</div>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <h4>💡 India Placement vs Germany — Honest Comparison</h4>
+    <p>India placement अभी अच्छा option है अगर तू top company में जाए। लेकिन Data Science में India में ₹8-12 LPA मिलती है fresher को — और growth slow है। Germany में 2 साल Masters के बाद €45-55K = ₹40-50 LPA equivalent purchasing power, और Europe में grow करने का मौका। <strong style="color: var(--gold);">Long game खेलना है तो Germany, short-term stability चाहिए तो India placement — लेकिन तू AI/DS में है, तो long game ही समझदारी है।</strong></p>
+  </div>
+</div>
+
+<!-- SECTION 2: ROADMAP -->
+<div id="roadmap" class="section">
+  <div class="sec-title">18 Month <span>Roadmap</span></div>
+  <p class="sec-desc">Sem 6 से लेकर Germany पहुँचने तक — महीने-दर-महीने plan।</p>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot done">NOW</div>
+      <div class="tl-content">
+        <div class="tl-month">MARCH – APRIL 2025 (SEM 6)</div>
+        <h4>🔥 Foundation Phase — अभी से शुरू कर</h4>
+        <ul class="tl-tasks">
+          <li>CGPA ठीक कर — 7.5+ बनाए रख, यह eligibility cutoff है</li>
+          <li>German A1 शुरू कर — Duolingo + YouTube (रोज़ 20 min)</li>
+          <li>GitHub profile बना — projects डालना शुरू कर</li>
+          <li>Data Science basics: Python, Pandas, NumPy पक्का कर</li>
+          <li>LinkedIn profile optimize कर</li>
+          <li>IELTS की date book कर — July/August में दे</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">7th</div>
+      <div class="tl-content">
+        <div class="tl-month">MAY – AUGUST 2025 (SUMMER BREAK + SEM 7)</div>
+        <h4>📚 Skill Build + IELTS Phase</h4>
+        <ul class="tl-tasks">
+          <li>IELTS दे — 6.5+ band target (prefer 7.0+)</li>
+          <li>Machine Learning: Andrew Ng course complete कर</li>
+          <li>1-2 solid Kaggle projects complete कर</li>
+          <li>German A1 complete → A2 शुरू</li>
+          <li>University research शुरू — shortlist बना (8-10 unis)</li>
+          <li>DAAD scholarship requirements study कर</li>
+          <li>अगर internship मिले तो ज़रूर कर (Data/AI field में)</li>
+          <li>Research paper पढ़ना शुरू कर (arXiv) — exposure के लिए</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">8th</div>
+      <div class="tl-content">
+        <div class="tl-month">SEPT – DEC 2025 (SEM 7 CONTINUES)</div>
+        <h4>🎯 Application Prep Phase</h4>
+        <ul class="tl-tasks">
+          <li>Statement of Purpose (SOP) draft करना शुरू — यह सबसे important है</li>
+          <li>Professors से LOR (Letter of Recommendation) request करना शुरू</li>
+          <li>German A2 complete → B1 शुरू</li>
+          <li>Deep Learning, SQL, Tableau/PowerBI सीख</li>
+          <li>Final university shortlist (5-6 unis) confirm कर</li>
+          <li>GRE decide — कुछ German unis require करती हैं, check कर</li>
+          <li>Resume/CV German academic format में बना</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">APP</div>
+      <div class="tl-content">
+        <div class="tl-month">JAN – MARCH 2026 (SEM 8 — FINAL YEAR)</div>
+        <h4>📝 APPLICATION SUBMIT करना — यह deadline miss मत करना</h4>
+        <ul class="tl-tasks">
+          <li>Winter 2026-27 intake के लिए applications submit करना (most unis: Jan-April deadline)</li>
+          <li>DAAD scholarship apply करना — deadline typically November/December</li>
+          <li>Uni Assist portal use करना (centralized application)</li>
+          <li>SOP finalize, LORs collect करना</li>
+          <li>Transcript की certified copies बनवाना</li>
+          <li>German B1 exam दे सके तो दे — Goethe Institut</li>
+          <li>Portfolio/GitHub clean कर</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">FIN</div>
+      <div class="tl-content">
+        <div class="tl-month">APRIL – JUNE 2026 (FINAL EXAMS + RESULTS)</div>
+        <h4>⏳ Wait + Finish Strong</h4>
+        <ul class="tl-tasks">
+          <li>Final exams — CGPA maintain करना crucial है</li>
+          <li>University offer letters आने लगेंगे — compare करना</li>
+          <li>Block account (Sperrkonto) के लिए planning करना — ₹10-11L</li>
+          <li>Part-time job या freelance — block amount के लिए save करना</li>
+          <li>German B1 → B2 practice जारी रखना</li>
+          <li>Graduation certificate, final transcripts ready रखना</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">VISA</div>
+      <div class="tl-content">
+        <div class="tl-month">JULY – AUGUST 2026</div>
+        <h4>🛂 Visa + Final Prep</h4>
+        <ul class="tl-tasks">
+          <li>Admission confirm हो जाए तो Student Visa apply करना — VFS Global India</li>
+          <li>Block account (Sperrkonto) open करना — Deutsche Bank / Fintiba / Coracle</li>
+          <li>Health insurance arrange करना (TK / AOK)</li>
+          <li>Accommodation book करना — Studentenwerk (student housing) या WG (flatshare)</li>
+          <li>Flight book करना</li>
+          <li>Emergency fund 3 months रखना साथ</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background: var(--green); color: #000;">🎉</div>
+      <div class="tl-content">
+        <div class="tl-month">SEPTEMBER 2026 → GERMANY</div>
+        <h4>✈️ Germany पहुँचना</h4>
+        <ul class="tl-tasks">
+          <li>Arrive, register at Einwohnermeldeamt (address registration — mandatory)</li>
+          <li>University enrollment complete करना</li>
+          <li>Bank account खोलना (N26 / DKB — easy for students)</li>
+          <li>Part-time job search शुरू — university job board, LinkedIn, Indeed.de</li>
+          <li>Student network बनाना — batchmates, seniors से connect करना</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="warning-box">
+    <strong>⚠️ Block Amount Reality Check:</strong> Germany Student Visa के लिए तुझे एक blocked account में €11,208 (2026 के हिसाब से ~₹10.5L) रखने होंगे। यह scholarship या loan से आ सकता है, या family से। यह arrange करना सबसे practically कठिन काम है — इसके लिए अभी से plan करना शुरू कर। DAAD scholarship मिल जाए तो यह problem काफी solve हो जाती है।
+  </div>
+</div>
+
+<!-- SECTION 3: SCHOLARSHIPS -->
+<div id="scholarships" class="section">
+  <div class="sec-title"><span>Scholarships</span> — पैसे का चक्कर</div>
+  <p class="sec-desc">Germany जाने के लिए पैसे नहीं चाहिए — सही scholarship चाहिए। यहाँ सब options हैं।</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Scholarship</th>
+          <th>Amount</th>
+          <th>Eligibility</th>
+          <th>Deadline</th>
+          <th>Difficulty</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>DAAD (Most Important)</strong><br><small>Deutscher Akademischer Austauschdienst</small></td>
+          <td>€934/month + health + travel</td>
+          <td>Good academic record, 2+ years work exp preferred (or fresh grad)</td>
+          <td>Oct-Nov annually</td>
+          <td><span class="badge badge-orange">HIGH</span></td>
+        </tr>
+        <tr>
+          <td><strong>Deutschlandstipendium</strong></td>
+          <td>€300/month</td>
+          <td>Enrolled in German university, good grades</td>
+          <td>After admission</td>
+          <td><span class="badge badge-green">MEDIUM</span></td>
+        </tr>
+        <tr>
+          <td><strong>Friedrich Ebert Stiftung</strong></td>
+          <td>€850/month</td>
+          <td>Social commitment + academics</td>
+          <td>Jan-Feb annually</td>
+          <td><span class="badge badge-orange">HIGH</span></td>
+        </tr>
+        <tr>
+          <td><strong>Konrad Adenauer Stiftung</strong></td>
+          <td>€850/month</td>
+          <td>Leadership + academics</td>
+          <td>Feb annually</td>
+          <td><span class="badge badge-orange">HIGH</span></td>
+        </tr>
+        <tr>
+          <td><strong>Heinrich Böll Stiftung</strong></td>
+          <td>€850/month</td>
+          <td>Green/feminist values + academics</td>
+          <td>March annually</td>
+          <td><span class="badge badge-orange">HIGH</span></td>
+        </tr>
+        <tr>
+          <td><strong>University Merit Scholarships</strong><br><small>(TU Munich, TU Berlin, etc.)</small></td>
+          <td>Varies (€300-1000)</td>
+          <td>Top applicants, varies by university</td>
+          <td>With admission</td>
+          <td><span class="badge badge-gold">MEDIUM-HIGH</span></td>
+        </tr>
+        <tr>
+          <td><strong>SBI / Canara Bank Education Loan</strong></td>
+          <td>Up to ₹40L+</td>
+          <td>Admission letter + collateral</td>
+          <td>Anytime</td>
+          <td><span class="badge badge-green">EASY</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="highlight">
+    <h4>🎯 Strategy — इस order में apply कर</h4>
+    <ul>
+      <li><strong>1st Priority: DAAD</strong> — India के लिए सबसे accessible, इसी पर focus कर। daad.de पर India-specific programs देख।</li>
+      <li><strong>2nd: University Scholarships</strong> — Admission मिलने के बाद automatically consider होते हैं कुछ में।</li>
+      <li><strong>3rd: Deutschlandstipendium</strong> — Germany पहुँचने के बाद apply करना।</li>
+      <li><strong>Backup: Education Loan</strong> — Block amount के लिए SBI Student Loan (education loan) ले सकता है। Interest rate 8-9% है। Scholarship मिल जाए तो repay करना आसान।</li>
+    </ul>
+  </div>
+
+  <div class="grid-2">
+    <div class="card gold">
+      <div class="card-icon">📋</div>
+      <h4>DAAD Application में क्या चाहिए</h4>
+      <p>
+        ✅ Motivation Letter (2 pages, very specific)<br>
+        ✅ Study/Research Plan (detailed)<br>
+        ✅ Academic Transcripts<br>
+        ✅ IELTS/TOEFL score<br>
+        ✅ 2 LORs (Professors)<br>
+        ✅ CV (Academic format)<br>
+        ✅ University admission proof<br>
+        ✅ Proof of German knowledge (optional but +ve)
+      </p>
+    </div>
+    <div class="card orange">
+      <div class="card-icon">💡</div>
+      <h4>Block Amount — कैसे arrange करें</h4>
+      <p>
+        Option 1: DAAD scholarship मिली तो partly covered<br>
+        Option 2: Education loan (SBI/Canara/HDFC) — bank को admission letter दिखाओ<br>
+        Option 3: Family support + personal savings<br>
+        Option 4: Fintiba/Coracle — India से online blocked account open होता है<br><br>
+        <strong style="color: var(--gold);">Start saving NOW — even ₹5K/month helps</strong>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: SKILLS -->
+<div id="skills" class="section">
+  <div class="sec-title">Data Science <span>Skills</span></div>
+  <p class="sec-desc">Germany में पहुँचते ही job/internship मिले — इसके लिए यह सब चाहिए। Priority के साथ।</p>
+
+  <div class="grid-2">
+    <div>
+      <h3 style="margin-bottom: 20px; font-size: 18px;">🔴 Must Have (Sem 7-8 में पक्का कर)</h3>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">Python (Advanced)</span>
+          <span class="skill-priority" style="color: var(--red);">CRITICAL</span>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 95%; background: var(--red);"></div></div>
+        <p style="font-size: 12px; color: #888; margin-top: 6px;">Pandas, NumPy, Sklearn, OOP concepts, clean code</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">Machine Learning</span>
+          <span class="skill-priority" style="color: var(--red);">CRITICAL</span>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 90%; background: var(--red);"></div></div>
+        <p style="font-size: 12px; color: #888; margin-top: 6px;">Regression, Classification, Clustering, Model evaluation</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">SQL + Databases</span>
+          <span class="skill-priority" style="color: var(--red);">CRITICAL</span>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 85%; background: var(--red);"></div></div>
+        <p style="font-size: 12px; color: #888; margin-top: 6px;">PostgreSQL, MySQL, joins, aggregations, window functions</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">Deep Learning Basics</span>
+          <span class="skill-priority" style="color: var(--orange);">HIGH</span>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 75%; background: var(--orange);"></div></div>
+        <p style="font-size: 12px; color: #888; margin-top: 6px;">TensorFlow/PyTorch basics, CNNs, NLP fundamentals</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">Statistics & Probability</span>
+          <span class="skill-priority" style="color: var(--orange);">HIGH</span>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 80%; background: var(--orange);"></div></div>
+        <p style="font-size: 12px; color: #888; margin-top: 6px;">Hypothesis testing, distributions, Bayesian basics</p>
+      </div>
+    </div>
+
+    <div>
+      <h3 style="margin-bottom: 20px; font-size: 18px;">🟡 Good to Have (जितना हो सके)</h3>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">Data Visualization</span>
+          <span class="skill-priority" style="color: var(--gold);">MEDIUM</span>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 70%; background: var(--gold);"></div></div>
+        <p style="font-size: 12px; color: #888; margin-top: 6px;">Matplotlib, Seaborn, Plotly, Tableau/PowerBI</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">Cloud (AWS/GCP/Azure)</span>
+          <span class="skill-priority" style="color: var(--gold);">MEDIUM</span>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 60%; background: var(--gold);"></div></div>
+        <p style="font-size: 12px; color: #888; margin-top: 6px;">Basic deployment, S3, BigQuery — free tier use कर</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">Git + GitHub</span>
+          <span class="skill-priority" style="color: var(--gold);">MEDIUM</span>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 80%; background: var(--gold);"></div></div>
+        <p style="font-size: 12px; color: #888; margin-top: 6px;">Version control, branches, pull requests — interview में check होता है</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">MLOps Basics</span>
+          <span class="skill-priority" style="color: var(--green);">BONUS</span>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 40%; background: var(--green);"></div></div>
+        <p style="font-size: 12px; color: #888; margin-top: 6px;">MLflow, Docker basics — Germany में बहुत demand है</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">Research/Paper Reading</span>
+          <span class="skill-priority" style="color: var(--green);">BONUS</span>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 50%; background: var(--green);"></div></div>
+        <p style="font-size: 12px; color: #888; margin-top: 6px;">arXiv papers समझना — university में और SOP में काम आता है</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <h4>🏆 Portfolio Strategy — Germany में Job के लिए</h4>
+    <ul>
+      <li><strong>3-4 Strong GitHub Projects:</strong> Real datasets, proper documentation, results clearly shown</li>
+      <li><strong>1 Kaggle Competition:</strong> Top 20% rank even — shows competitive spirit</li>
+      <li><strong>1 End-to-End Project:</strong> Data collection → Cleaning → ML model → Deployment (Flask/Streamlit) → GitHub</li>
+      <li><strong>Kaggle Notebook:</strong> Well-explained EDA notebook — recruiters देखते हैं</li>
+      <li><strong>LinkedIn पर showcase:</strong> Project posts in English — German recruiters English देखते हैं</li>
+    </ul>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Sem</th><th>Focus</th><th>Certification (Optional)</th><th>Project</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sem 6 (Now)</td>
+          <td>Python solid, SQL basics, Git</td>
+          <td>—</td>
+          <td>EDA project on Kaggle dataset</td>
+        </tr>
+        <tr>
+          <td>Summer '25</td>
+          <td>ML algorithms, Statistics</td>
+          <td>Andrew Ng ML Specialization</td>
+          <td>ML prediction project (end-to-end)</td>
+        </tr>
+        <tr>
+          <td>Sem 7</td>
+          <td>Deep Learning, NLP, SQL Advanced</td>
+          <td>DeepLearning.AI TensorFlow</td>
+          <td>NLP project (sentiment/text classification)</td>
+        </tr>
+        <tr>
+          <td>Sem 8</td>
+          <td>Portfolio polish, interview prep</td>
+          <td>Google Data Analytics (free)</td>
+          <td>Final thesis project → GitHub पर डाल</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION 5: GERMAN -->
+<div id="german" class="section">
+  <div class="sec-title">German <span>Language</span> Plan</div>
+  <p class="sec-desc">A1 से B1/B2 तक — 18 months में possible है। Smart तरीके से।</p>
+
+  <div class="verdict">
+    <div class="verdict-label">REALITY CHECK</div>
+    <h3>English-taught programs के लिए German mandatory नहीं — लेकिन game-changer है।</h3>
+    <p>Most MSc Data Science programs in Germany English में हैं। तो German visa/admission के लिए strictly required नहीं है। लेकिन: part-time job ढूंढने के लिए, daily life के लिए, और future job prospects के लिए German B1/B2 बहुत काम आती है। <strong>Priority: पहले IELTS, फिर German।</strong></p>
+  </div>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-icon">🔤</div>
+      <h4>A1 — अभी शुरू कर (Free)</h4>
+      <p>Daily 20-30 min। Duolingo + YouTube (Deutsch für Euch)। Basic greetings, numbers, days। 2-3 months में complete।</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📖</div>
+      <h4>A2 — Sem 7 तक</h4>
+      <p>Nicos Weg (free — Deutsche Welle website)। Simple conversations, shopping, directions। Goethe Institut books या Lingoda app।</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎯</div>
+      <h4>B1 — Germany जाने से पहले target</h4>
+      <p>B1 certificate Goethe Institut से लेना best है। Germany में easily job interview, daily tasks handle कर सकते हो। telc exam या Goethe B1 दे।</p>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Resource</th><th>Level</th><th>Cost</th><th>Best For</th></tr></thead>
+      <tbody>
+        <tr><td>Duolingo</td><td>A1-A2</td><td>Free</td><td>Daily habit बनाना</td></tr>
+        <tr><td>Deutsche Welle — Nicos Weg</td><td>A1-B1</td><td>Free</td><td>Video + audio + exercises</td></tr>
+        <tr><td>Goethe Institut India</td><td>All levels</td><td>₹8,000-20,000</td><td>Official certification</td></tr>
+        <tr><td>Lingoda</td><td>A1-C1</td><td>€8-15/class</td><td>Live classes, structured</td></tr>
+        <tr><td>Anki Flashcards</td><td>Vocabulary</td><td>Free</td><td>5000+ German words याद करना</td></tr>
+        <tr><td>Easy German (YouTube)</td><td>B1-B2</td><td>Free</td><td>Real German street conversations</td></tr>
+        <tr><td>italki</td><td>Any</td><td>€5-15/hr</td><td>Native speaker practice</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="highlight">
+    <h4>📅 German Learning Schedule (Realistic)</h4>
+    <ul>
+      <li><strong>Mar-May 2025:</strong> Duolingo रोज़ + DW Nicos Weg A1 → A1 complete</li>
+      <li><strong>Jun-Aug 2025:</strong> A2 content, Goethe A2 exam consider करना (Jaipur में center है)</li>
+      <li><strong>Sep-Dec 2025:</strong> B1 prep, YouTube channels, Anki vocab</li>
+      <li><strong>Jan-Jun 2026:</strong> Goethe B1 exam — certificate लेना</li>
+      <li><strong>Germany में:</strong> B2 naturally improve हो जाएगा environment में</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 6: UNIVERSITIES -->
+<div id="universities" class="section">
+  <div class="sec-title">Target <span>Universities</span></div>
+  <p class="sec-desc">Public unis, low/no fees, English MSc Data Science programs। यह shortlist है।</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>University</th><th>City</th><th>Program</th><th>Fees</th><th>CGPA</th><th>Rank</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>TU Munich (TUM)</strong></td>
+          <td>Munich</td>
+          <td>MSc Informatics (Data focus)</td>
+          <td>€0 + €144 semester fee</td>
+          <td>8.0+</td>
+          <td><span class="badge badge-gold">TOP TIER</span></td>
+        </tr>
+        <tr>
+          <td><strong>LMU Munich</strong></td>
+          <td>Munich</td>
+          <td>MSc Data Science</td>
+          <td>€0 + ~€150</td>
+          <td>7.5+</td>
+          <td><span class="badge badge-gold">TOP TIER</span></td>
+        </tr>
+        <tr>
+          <td><strong>TU Berlin</strong></td>
+          <td>Berlin</td>
+          <td>MSc Computer Science</td>
+          <td>€0 + ~€300</td>
+          <td>7.5+</td>
+          <td><span class="badge badge-green">GOOD</span></td>
+        </tr>
+        <tr>
+          <td><strong>University of Hamburg</strong></td>
+          <td>Hamburg</td>
+          <td>MSc Intelligent Adaptive Systems</td>
+          <td>€0 + ~€350</td>
+          <td>7.0+</td>
+          <td><span class="badge badge-green">GOOD</span></td>
+        </tr>
+        <tr>
+          <td><strong>Uni of Stuttgart</strong></td>
+          <td>Stuttgart</td>
+          <td>MSc Computer Science / ML</td>
+          <td>€0 + ~€200</td>
+          <td>7.5+</td>
+          <td><span class="badge badge-green">GOOD</span></td>
+        </tr>
+        <tr>
+          <td><strong>Saarland University</strong></td>
+          <td>Saarbrücken</td>
+          <td>MSc CS / Data Science</td>
+          <td>€0 + ~€300</td>
+          <td>7.0+</td>
+          <td><span class="badge badge-blue">SAFE</span></td>
+        </tr>
+        <tr>
+          <td><strong>TU Dortmund</strong></td>
+          <td>Dortmund</td>
+          <td>MSc Data Science</td>
+          <td>€0 + ~€300</td>
+          <td>6.5+</td>
+          <td><span class="badge badge-blue">SAFE</span></td>
+        </tr>
+        <tr>
+          <td><strong>Uni Mannheim</strong></td>
+          <td>Mannheim</td>
+          <td>MSc Data Science</td>
+          <td>€0 + ~€200</td>
+          <td>7.0+</td>
+          <td><span class="badge badge-green">GOOD</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid-2">
+    <div class="card blue">
+      <div class="card-icon">📋</div>
+      <h4>Application Process</h4>
+      <p>
+        Most German universities Uni-Assist portal use करती हैं। कुछ directly apply करती हैं। Steps:<br><br>
+        1. Uni-Assist पर account बना<br>
+        2. Documents upload: transcripts, IELTS, SOP, LOR, CV<br>
+        3. Application fee: ~€75 per application<br>
+        4. 3-5 universities में apply करना — dream, target, safe mix<br>
+        5. Decision: April-June में आती है
+      </p>
+    </div>
+    <div class="card gold">
+      <div class="card-icon">💡</div>
+      <h4>SOP (Statement of Purpose) — यह सबसे important है</h4>
+      <p>
+        German universities SOP को बहुत seriously लेती हैं।<br><br>
+        ✅ Why Data Science? Why Germany? Why THIS university?<br>
+        ✅ Specific professors या research groups mention कर<br>
+        ✅ अपने projects/skills connect कर<br>
+        ✅ Future goals clearly state कर<br>
+        ✅ 2 pages, English, no generic sentences<br><br>
+        <strong style="color: var(--gold);">Generic SOP = rejection। Research करके लिख।</strong>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 7: JOB IN GERMANY -->
+<div id="job" class="section">
+  <div class="sec-title">Germany में <span>Job</span> Strategy</div>
+  <p class="sec-desc">पहुँचते ही 1-2 महीने में part-time/internship — यह possible है अगर prepared हो।</p>
+
+  <div class="verdict">
+    <div class="verdict-label">IMPORTANT RULE</div>
+    <h3>Student Visa पर 20 hrs/week work legal है।</h3>
+    <p>Germany में international students 20 hours प्रति week part-time job कर सकते हैं, plus सभी semester breaks में full-time। Average student job: €12-15/hour = €800-1200/month। Data Science internship: €1500-2500/month। यह living expenses cover करने के लिए enough है।</p>
+  </div>
+
+  <div class="grid-3">
+    <div class="card green">
+      <div class="card-icon">💻</div>
+      <h4>Werkstudent (Most Common)</h4>
+      <p>Student part-time job in a company। Data Science students के लिए: SAP, BMW, Siemens, startups। English में काम होता है। €15-25/hr। LinkedIn, Glassdoor, Stepstone.de पर ढूंढो।</p>
+    </div>
+    <div class="card blue">
+      <div class="card-icon">🏛️</div>
+      <h4>University Jobs (HiWi)</h4>
+      <p>Research assistant। प्रोफेसर के lab में काम। Germany पहुँचने के बाद professors को directly email कर। Easy way in, और CV के लिए बढ़िया।</p>
+    </div>
+    <div class="card orange">
+      <div class="card-icon">🚀</div>
+      <h4>Internship (Praktikum)</h4>
+      <p>6 months तक internship semester break में। Mercedes, Bayer, DeepMind Munich — सब hire करते हैं। Germany में internship offer rate India से बहुत better है।</p>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <h4>🎯 Germany पहुँचने के बाद Day 1 से job search plan</h4>
+    <ul>
+      <li><strong>Week 1-2:</strong> Registration, bank account, enrollment complete करना। LinkedIn German location update करना।</li>
+      <li><strong>Week 3-4:</strong> LinkedIn Easy Apply — "Werkstudent Data Science" search करना। रोज़ 5-10 applications। Resume को German format में adapt करना।</li>
+      <li><strong>Month 2:</strong> University career center visit करना। Senior Indian students से job tips लेना। HiWi position के लिए professors को email करना।</li>
+      <li><strong>Key Platforms:</strong> LinkedIn (best), Stepstone.de, Indeed.de, Glassdoor.de, Xing (German LinkedIn), university job boards</li>
+      <li><strong>Secret Weapon:</strong> Indian community Germany में बहुत बड़ी है — WhatsApp/Telegram groups join करना, referrals मिलते हैं।</li>
+    </ul>
+  </div>
+
+  <div class="warning-box">
+    <strong>⚠️ German Language for Jobs:</strong> Tech/Data Science jobs mostly English में हैं, इसलिए German mandatory नहीं है। लेकिन A2-B1 German होने से तुझे priority मिलती है। Supermarket/cafe/restaurant jobs के लिए German ज़रूरी है।
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-icon">📝</div>
+      <h4>German CV Format (अलग है Indian से)</h4>
+      <p>
+        ✅ Photo include करना (optional but common)<br>
+        ✅ Personal details section<br>
+        ✅ Reverse chronological order<br>
+        ✅ Education prominent रखना<br>
+        ✅ Skills clearly listed<br>
+        ✅ Hobbies/Interests section (Germans include करते हैं)<br>
+        ✅ 1-2 pages max<br>
+        ✅ PDF format, clean design
+      </p>
+    </div>
+    <div class="card">
+      <div class="card-icon">💰</div>
+      <h4>Monthly Budget (Germany में)</h4>
+      <p>
+        🏠 Rent (student dorm): €250-350<br>
+        🍽️ Food: €150-200<br>
+        🚌 Transport (semester ticket): €30-60<br>
+        📱 Phone: €10-15<br>
+        🏥 Health Insurance: €110<br>
+        📚 Misc: €100<br>
+        <strong>Total: ~€700-800/month</strong><br>
+        <small style="color: var(--green);">Part-time job से cover possible है</small>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 8: RESOURCES -->
+<div id="resources" class="section">
+  <div class="sec-title">All <span>Resources</span></div>
+  <p class="sec-desc">एक जगह सब कुछ — websites, YouTube, apps, communities।</p>
+
+  <h3 style="margin-bottom: 16px; color: var(--gold); font-size: 16px; letter-spacing: 2px; font-family: 'JetBrains Mono', monospace;">📚 DATA SCIENCE LEARNING</h3>
+  <div class="resource-grid" style="margin-bottom: 36px;">
+    <div class="resource-card">
+      <div class="resource-icon">🎓</div>
+      <div class="resource-body">
+        <h5>Coursera — Andrew Ng ML</h5>
+        <p>Machine Learning Specialization — best starting point</p>
+        <a href="https://coursera.org" target="_blank">coursera.org</a>
+      </div>
+    </div>
+    <div class="resource-card">
+      <div class="resource-icon">🤗</div>
+      <div class="resource-body">
+        <h5>fast.ai</h5>
+        <p>Practical Deep Learning — free, project-based approach</p>
+        <a href="https://fast.ai" target="_blank">fast.ai</a>
+      </div>
+    </div>
+    <div class="resource-card">
+      <div class="resource-icon">🏆</div>
+      <div class="resource-body">
+        <h5>Kaggle</h5>
+        <p>Competitions, datasets, notebooks, free courses</p>
+        <a href="https://kaggle.com" target="_blank">kaggle.com</a>
+      </div>
+    </div>
+    <div class="resource-card">
+      <div class="resource-icon">🧮</div>
+      <div class="resource-body">
+        <h5>StatQuest (YouTube)</h5>
+        <p>Statistics + ML concepts crystal clear</p>
+        <a href="https://youtube.com/@statquest" target="_blank">YouTube</a>
+      </div>
+    </div>
+    <div class="resource-card">
+      <div class="resource-icon">💾</div>
+      <div class="resource-body">
+        <h5>Mode SQL Tutorial</h5>
+        <p>SQL from basics to advanced — free</p>
+        <a href="https://mode.com/sql-tutorial" target="_blank">mode.com</a>
+      </div>
+    </div>
+    <div class="resource-card">
+      <div class="resource-icon">📊</div>
+      <div class="resource-body">
+        <h5>Towards Data Science</h5>
+        <p>Medium publication — articles, project ideas, tutorials</p>
+        <a href="https://towardsdatascience.com" target="_blank">towardsdatascience.com</a>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-bottom: 16px; color: var(--gold); font-size: 16px; letter-spacing: 2px; font-family: 'JetBrains Mono', monospace;">🇩🇪 GERMANY SPECIFIC</h3>
+  <div class="resource-grid" style="margin-bottom: 36px;">
+    <div class="resource-card">
+      <div class="resource-icon">🎓</div>
+      <div class="resource-body">
+        <h5>DAAD Official</h5>
+        <p>Scholarships, university search, all Germany info</p>
+        <a href="https://daad.de" target="_blank">daad.de</a>
+      </div>
+    </div>
+    <div class="resource-card">
+      <div class="resource-icon">🏛️</div>
+      <div class="resource-body">
+        <h5>Uni-Assist</h5>
+        <p>Centralized application portal for German universities</p>
+        <a href="https://uni-assist.de" target="_blank">uni-assist.de</a>
+      </div>
+    </div>
+    <div class="resource-card">
+      <div class="resource-icon">🔍</div>
+      <div class="resource-body">
+        <h5>Hochschulkompass</h5>
+        <p>Official German university + program search</p>
+        <a href="https://hochschulkompass.de" target="_blank">hochschulkompass.de</a>
+      </div>
+    </div>
+    <div class="resource-card">
+      <div class="resource-icon">💼</div>
+      <div class="resource-body">
+        <h5>Fintiba / Coracle</h5>
+        <p>Blocked account (Sperrkonto) for visa — India से open होता है</p>
+        <a href="https://fintiba.com" target="_blank">fintiba.com</a>
+      </div>
+    </div>
+    <div class="resource-card">
+      <div class="resource-icon">📝</div>
+      <div class="resource-body">
+        <h5>Reddit r/germany & r/MSIIT</h5>
+        <p>Real experiences from Indians in Germany</p>
+        <a href="https://reddit.com/r/germany" target="_blank">reddit.com/r/germany</a>
+      </div>
+    </div>
+    <div class="resource-card">
+      <div class="resource-icon">🇩🇪</div>
+      <div class="resource-body">
+        <h5>Make it in Germany</h5>
+        <p>Official German government guide for international students</p>
+        <a href="https://make-it-in-germany.com" target="_blank">make-it-in-germany.com</a>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-bottom: 16px; color: var(--gold); font-size: 16px; letter-spacing: 2px; font-family: 'JetBrains Mono', monospace;">🗣️ GERMAN LANGUAGE</h3>
+  <div class="resource-grid" style="margin-bottom: 36px;">
+    <div class="resource-card">
+      <div class="resource-icon">📱</div>
+      <div class="resource-body">
+        <h5>Deutsche Welle — Nicos Weg</h5>
+        <p>A1-B1 free video course — best free German resource</p>
+        <a href="https://dw.com/de/deutsch-lernen" target="_blank">dw.com</a>
+      </div>
+    </div>
+    <div class="resource-card">
+      <div class="resource-icon">🦉</div>
+      <div class="resource-body">
+        <h5>Duolingo</h5>
+        <p>Daily habit — 20 mins/day, A1-A2 के लिए perfect</p>
+        <a href="https://duolingo.com" target="_blank">duolingo.com</a>
+      </div>
+    </div>
+    <div class="resource-card">
+      <div class="resource-icon">📺</div>
+      <div class="resource-body">
+        <h5>Easy German (YouTube)</h5>
+        <p>Real street German with subtitles — B1+ के बाद देखना</p>
+        <a href="https://youtube.com/@EasyGerman" target="_blank">YouTube</a>
+      </div>
+    </div>
+    <div class="resource-card">
+      <div class="resource-icon">🃏</div>
+      <div class="resource-body">
+        <h5>Anki Flashcards</h5>
+        <p>5000 German words deck — free download, daily 20 cards</p>
+        <a href="https://apps.ankiweb.net" target="_blank">apps.ankiweb.net</a>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-bottom: 16px; color: var(--gold); font-size: 16px; letter-spacing: 2px; font-family: 'JetBrains Mono', monospace;">👥 COMMUNITY (MUST JOIN)</h3>
+  <div class="resource-grid">
+    <div class="resource-card">
+      <div class="resource-icon">💬</div>
+      <div class="resource-body">
+        <h5>Telegram: Indians in Germany</h5>
+        <p>"Indians in Germany", "Indians in Munich" — Telegram पर search कर। Job referrals, room sharing, city tips।</p>
+      </div>
+    </div>
+    <div class="resource-card">
+      <div class="resource-icon">🔵</div>
+      <div class="resource-body">
+        <h5>Facebook: Indian Students Germany</h5>
+        <p>"Indian Students in Germany" group — बड़ी community, बहुत helpful</p>
+      </div>
+    </div>
+    <div class="resource-card">
+      <div class="resource-icon">💼</div>
+      <div class="resource-body">
+        <h5>LinkedIn Germany Community</h5>
+        <p>Target university के alumni से connect कर — "TU Munich alumni India" search कर। Referrals possible।</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 50px; padding: 30px; background: var(--gray); border-radius: 8px; border: 1px solid #333; text-align: center;">
+    <div style="font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--gold); margin-bottom: 12px;">SUMMARY IN ONE LINE</div>
+    <p style="font-size: 16px; color: #ccc; max-width: 700px; margin: 0 auto; line-height: 1.8;">
+      <strong style="color: white;">CGPA maintain कर → IELTS दे → Skills build कर → German सीख → DAAD + 5 unis में apply कर → Block amount arrange कर → Germany पहुँच → Werkstudent job ढूंढ।</strong><br><br>
+      <span style="color: var(--text-muted);">यह doable है। हर month में 1-2 चीज़ें करता रह — panic की ज़रूरत नहीं। बस consistent रह।</span>
+    </p>
+  </div>
+</div>
+
+<script>
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({ top: 120, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
